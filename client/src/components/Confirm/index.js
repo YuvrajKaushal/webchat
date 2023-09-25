@@ -1,42 +1,44 @@
-import Vue from 'vue';
-import '../Alert/index.css';
-import './index.css';
+import Vue from 'vue'
+import '../Alert/index.css'
+import './index.css'
 
-const root = window.document.body;
+const root = window.document.body
 
-export default function Alert(config) {
-  const wrap = document.createElement('div');
-  const div = document.createElement('div');
-  wrap.style.position = 'absolute';
-  wrap.style.width = '100%';
-  wrap.style.height = '100%';
-  wrap.style.left = '0';
-  wrap.style.top = '0';
+export default function Alert (config) {
+  const wrap = document.createElement('div')
+  const div = document.createElement('div')
+  wrap.style.position = 'absolute'
+  wrap.style.width = '100%'
+  wrap.style.height = '100%'
+  wrap.style.left = '0'
+  wrap.style.top = '0'
 
-  root.appendChild(wrap);
-  wrap.appendChild(div);
+  root.appendChild(wrap)
+  wrap.appendChild(div)
 
-  config = config || {};
+  config = config || {}
 
-  return new Promise(resolve => new Vue({
-    el: div,
-    data: {
-      title: config.title || '',
-      content: config.content || '',
-      ok: config.ok || '确定',
-      cancel: config.cancel || '取消'
-    },
-    methods: {
-      submit() {
-        root.removeChild(wrap);
-        resolve('submit');
-      },
-      close() {
-        root.removeChild(wrap);
-        resolve('close');
-      }
-    },
-    template: `
+  return new Promise(
+    (resolve) =>
+      new Vue({
+        el: div,
+        data: {
+          title: config.title || '',
+          content: config.content || '',
+          ok: config.ok || '确定',
+          cancel: config.cancel || '取消'
+        },
+        methods: {
+          submit () {
+            root.removeChild(wrap)
+            resolve('submit')
+          },
+          close () {
+            root.removeChild(wrap)
+            resolve('close')
+          }
+        },
+        template: `
       <div class="wind-alert">
         <div class="wind-alert-bg"></div>
         <div class="wind-alert-dialog animate-scale">
@@ -49,5 +51,6 @@ export default function Alert(config) {
         </div>
       </div>
     `
-  }));
+      })
+  )
 }

@@ -3,12 +3,15 @@
     <div class="content">
       <form action="" name="form2">
         <div class="context-logo">
-          <img src="https://s3.qiufengh.com/webchat/webchat-logo-160.png" alt="">
+          <img
+            src="https://s3.qiufengh.com/webchat/webchat-logo-160.png"
+            alt=""
+          />
         </div>
-        <Input v-model="username" type="text" placeholder="输入账号"/>
-        <br/>
-        <Input v-model="password" type="password" placeholder="输入密码"/>
-        <br/>
+        <Input v-model="username" type="text" placeholder="输入账号" />
+        <br />
+        <Input v-model="password" type="password" placeholder="输入密码" />
+        <br />
         <div class="box box2" @click="submit">
           <Arrow></Arrow>
         </div>
@@ -16,17 +19,24 @@
       <div class="bottom-wraper">
         <mu-flex align-items="center">
           <mu-flex justify-content="center" fill>
-            <router-link :to="{ name: type === 'login' ? 'Register' : 'Login'}"><div class="tip-user">{{type === 'login' ? '注册帐号' : '去登录' }}</div></router-link>
+            <router-link :to="{ name: type === 'login' ? 'Register' : 'Login' }"
+              ><div class="tip-user">
+                {{ type === "login" ? "注册帐号" : "去登录" }}
+              </div></router-link
+            >
           </mu-flex>
           <mu-flex justify-content="center">|</mu-flex>
-          <mu-flex justify-content="center" fill><div class="tip-user">忘记密码</div></mu-flex>
+          <mu-flex justify-content="center" fill
+            ><div class="tip-user">忘记密码</div></mu-flex
+          >
         </mu-flex>
-        <div class="bottom-arguemnt">
-          登录即可代表同意协议
-        </div>
-        <p style="text-align: center"><a href="http://beian.miit.gov.cn" target="_blank">浙ICP备16040413号-1</a></p>
+        <div class="bottom-arguemnt">登录即可代表同意协议</div>
+        <p style="text-align: center">
+          <a href="http://beian.miit.gov.cn" target="_blank"
+            >浙ICP备16040413号-1</a
+          >
+        </p>
       </div>
-
     </div>
   </div>
 </template>

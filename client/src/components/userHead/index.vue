@@ -1,34 +1,31 @@
 <template>
   <div class="user-header">
     <div class="head">
-      <img :src="src" alt="">
+      <img :src="src" alt="" />
     </div>
     <div class="name">
-      {{username}}
+      {{ username }}
     </div>
     <div class="background">
-      <img :src="src" alt="">
+      <img :src="src" alt="" />
     </div>
   </div>
 </template>
 
 <script>
 export default {
-
   components: {},
-  props: ['src', 'username'],
-  data () {
-    return {
-    };
+  props: ["src", "username"],
+  data() {
+    return {};
   },
 
   computed: {},
 
   mounted() {},
 
-  methods: {}
-}
-
+  methods: {},
+};
 </script>
 <style lang="stylus" rel="stylesheet/stylus">
 .user-header {

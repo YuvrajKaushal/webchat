@@ -5,10 +5,7 @@
     </div>
     <div class="body">
       <div class="tip" v-if="isSelf">
-        <Status
-          :status="status"
-          @error="handleRetry">
-        </Status>
+        <Status :status="status" @error="handleRetry"> </Status>
       </div>
       <div class="item">
         <Avatar
@@ -20,7 +17,9 @@
         ></Avatar>
         <div v-if="img">
           <div class="img-wrapper">
-            <div class="img-bg" v-if="loading && loading !== 100">{{loading}}%</div>
+            <div class="img-bg" v-if="loading && loading !== 100">
+              {{ loading }}%
+            </div>
             <img
               v-imgSize="pic.src"
               :width="pic.width"
@@ -34,7 +33,10 @@
             />
           </div>
         </div>
-        <span v-if="msg" :class="[confetti ? 'msg-text animation-confetti': 'msg-text']">
+        <span
+          v-if="msg"
+          :class="[confetti ? 'msg-text animation-confetti' : 'msg-text']"
+        >
           <span v-html="linkMsg" class="msg"></span>
         </span>
       </div>

@@ -1,5 +1,5 @@
-var mongoose = require('mongoose')
-var FriendSchema = require('../schemas/friend')
-var Friend = mongoose.model('Friend', FriendSchema)
+const mongoose = require('mongoose')
+const FriendSchema = require('../schemas/friend')
+const Friend = mongoose.model('Friend', FriendSchema)
 
-module.exports = Friend;
+module.exports = Friend

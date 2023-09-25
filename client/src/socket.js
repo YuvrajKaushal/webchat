@@ -1,6 +1,6 @@
-import io from 'socket.io-client';
-import config from '../config/client';
+import io from 'socket.io-client'
+import config from '../config/client'
 
-const socket = io.connect(config.server);
+const socket = io.connect(config.server)
 
-export default socket;
+export default socket

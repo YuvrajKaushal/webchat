@@ -1,15 +1,21 @@
 <template>
   <span>
-    <i v-if="status === 'loading' " class="icon iconfont icon-loading circle-loading"></i>
+    <i
+      v-if="status === 'loading'"
+      class="icon iconfont icon-loading circle-loading"
+    ></i>
 
-    <i v-if="status === 'error' " class="icon iconfont icon-error" @click="error"></i>
-
+    <i
+      v-if="status === 'error'"
+      class="icon iconfont icon-error"
+      @click="error"
+    ></i>
   </span>
 </template>
 
 <script>
 export default {
-  props: ['status'],
+  props: ["status"],
   components: {},
   data() {
     return {};
@@ -19,9 +25,9 @@ export default {
 
   methods: {
     error() {
-      this.$emit('error');
-    }
-  }
+      this.$emit("error");
+    },
+  },
 };
 </script>
 <style lang="stylus">

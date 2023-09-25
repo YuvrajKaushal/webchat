@@ -1,5 +1,5 @@
-var mongoose = require('mongoose')
-var SearchSchema = require('../schemas/search')
-var Search = mongoose.model('Search', SearchSchema)
+const mongoose = require('mongoose')
+const SearchSchema = require('../schemas/search')
+const Search = mongoose.model('Search', SearchSchema)
 
-module.exports = Search;
+module.exports = Search

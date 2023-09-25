@@ -1,18 +1,31 @@
 <template>
   <div class="chat-input-outer">
-    <input v-bind="$attrs" ref="input" class="chat-input" :value="initValue" :type="type" @input="handleInput">
-    <mu-icon @click="handleReset" v-show="cancel" size="24" value="cancel" class="chat-cancel"></mu-icon>
+    <input
+      v-bind="$attrs"
+      ref="input"
+      class="chat-input"
+      :value="initValue"
+      :type="type"
+      @input="handleInput"
+    />
+    <mu-icon
+      @click="handleReset"
+      v-show="cancel"
+      size="24"
+      value="cancel"
+      class="chat-cancel"
+    ></mu-icon>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['value', 'type'],
+  props: ["value", "type"],
   components: {},
-  data () {
+  data() {
     return {
       initValue: this.value,
-      cancel: false
+      cancel: false,
     };
   },
 
@@ -22,26 +35,25 @@ export default {
 
   methods: {
     handleReset() {
-      this.$emit('input', '');
-      this.$emit('change', '');
-      this.$emit('clear');
-      this.initValue = '';
+      this.$emit("input", "");
+      this.$emit("change", "");
+      this.$emit("clear");
+      this.initValue = "";
       this.cancel = false;
     },
     handleInput(event) {
-      if(event.target.value) {
+      if (event.target.value) {
         this.cancel = true;
       } else {
         this.cancel = false;
       }
       this.initValue = event.target.value;
-      this.$emit('input', event.target.value);
+      this.$emit("input", event.target.value);
     },
-  }
-}
-
+  },
+};
 </script>
-<style lang='stylus' scoped>
+<style lang="stylus" scoped>
 .chat-input-outer {
   display: flex
   width: 100%;

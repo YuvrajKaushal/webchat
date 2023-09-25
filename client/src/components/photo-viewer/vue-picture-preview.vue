@@ -1,25 +1,42 @@
 <template>
-    <transition name="fade">
-        <div class="lg-preview-wrapper" v-show="preview.show" @click="leave" @touchmove.prevent>
-            <div class="lg-preview-loading" v-show="preview.loading"><div></div></div>
-            <img
-                class="lg-preview-img"
-                v-if="preview.current.src"
-                :src="preview.current.src"
-                :alt="preview.current.title"
-                v-show="!preview.loading"
-            >
-            <div class="lg-preview-title" v-if="preview.isTitleEnable&&preview.current.title" v-show="!preview.loading">
-                {{preview.current.title}}
-            </div>
-            <div class="lg-preview-nav-left" v-if="preview.isHorizontalNavEnable" v-show="!preview.loading">
-                <span class="lg-preview-nav-arrow" @click="preAction" ></span>
-            </div>
-            <div class="lg-preview-nav-right" v-if="preview.isHorizontalNavEnable" v-show="!preview.loading">
-                <span class="lg-preview-nav-arrow" @click="nextAction"></span>
-            </div>
-        </div>
-    </transition>
+  <transition name="fade">
+    <div
+      class="lg-preview-wrapper"
+      v-show="preview.show"
+      @click="leave"
+      @touchmove.prevent
+    >
+      <div class="lg-preview-loading" v-show="preview.loading"><div></div></div>
+      <img
+        class="lg-preview-img"
+        v-if="preview.current.src"
+        :src="preview.current.src"
+        :alt="preview.current.title"
+        v-show="!preview.loading"
+      />
+      <div
+        class="lg-preview-title"
+        v-if="preview.isTitleEnable && preview.current.title"
+        v-show="!preview.loading"
+      >
+        {{ preview.current.title }}
+      </div>
+      <div
+        class="lg-preview-nav-left"
+        v-if="preview.isHorizontalNavEnable"
+        v-show="!preview.loading"
+      >
+        <span class="lg-preview-nav-arrow" @click="preAction"></span>
+      </div>
+      <div
+        class="lg-preview-nav-right"
+        v-if="preview.isHorizontalNavEnable"
+        v-show="!preview.loading"
+      >
+        <span class="lg-preview-nav-arrow" @click="nextAction"></span>
+      </div>
+    </div>
+  </transition>
 </template>
 
 <script>
@@ -28,7 +45,7 @@ export default {
   computed: {
     preview() {
       return window.LOGIC_EVENT_BUS.LOGIC_PREVIEW;
-    }
+    },
   },
   methods: {
     leave(e) {
@@ -53,8 +70,8 @@ export default {
       this.preview.current = this.preview.list[index];
       const img = new window.Image();
       img.src = this.preview.current.src;
-      img.onload = function() {
-        setTimeout(function() {
+      img.onload = function () {
+        setTimeout(function () {
           window.LOGIC_EVENT_BUS.LOGIC_PREVIEW.loading = false;
         }, 500);
       };
@@ -70,13 +87,13 @@ export default {
       this.preview.current = this.preview.list[index];
       const img = new window.Image();
       img.src = this.preview.current.src;
-      img.onload = function() {
-        setTimeout(function() {
+      img.onload = function () {
+        setTimeout(function () {
           window.LOGIC_EVENT_BUS.LOGIC_PREVIEW.loading = false;
         }, 500);
       };
-    }
-  }
+    },
+  },
 };
 </script>
 

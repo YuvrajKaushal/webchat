@@ -3,24 +3,36 @@
     <SearchBar disabled="true" @submit="handleSearch"></SearchBar>
     <div>
       <mu-sub-header>vvvvip</mu-sub-header>
-      <mu-chip class="list-chip vip-chip" color="#282b2d" v-for="item in vipUserList" :key="item._id" @click="lookInfo({_id: item.name})">
+      <mu-chip
+        class="list-chip vip-chip"
+        color="#282b2d"
+        v-for="item in vipUserList"
+        :key="item._id"
+        @click="lookInfo({ _id: item.name })"
+      >
         <!-- icon-huangguan -->
         <mu-avatar :size="32">
-          <img :src="item.src">
+          <img :src="item.src" />
         </mu-avatar>
         <img class="vip-img" src="https://s3.qiufengh.com/webchat/vvvip.png" />
-        {{item.name > 10 ? `${item.name.slice(0,10)}...` : item.name}}
+        {{ item.name > 10 ? `${item.name.slice(0, 10)}...` : item.name }}
       </mu-chip>
 
       <mu-sub-header>热门用户</mu-sub-header>
-      <mu-chip class="list-chip" :color="item.color" v-for="item in mapHotList" :key="item._id" @click="lookInfo(item)">
+      <mu-chip
+        class="list-chip"
+        :color="item.color"
+        v-for="item in mapHotList"
+        :key="item._id"
+        @click="lookInfo(item)"
+      >
         <mu-avatar :size="32">
-          <img :src="item.user.src">
+          <img :src="item.user.src" />
         </mu-avatar>
-        {{item._id.length > 10 ? `${item._id.slice(0,10)}...` : item._id}}
+        {{ item._id.length > 10 ? `${item._id.slice(0, 10)}...` : item._id }}
       </mu-chip>
     </div>
-    <div style="height:80px"></div>
+    <div style="height: 80px"></div>
     <Bottom></Bottom>
   </div>
 </template>
@@ -33,17 +45,17 @@ import Alert from "@components/Alert";
 import Bottom from "@components/Bottom";
 import UserHead from "@components/userHead";
 import SearchBar from "@components/searchBar";
-const randomColor = require('randomcolor');
-import { sort } from '@utils/tools';
+const randomColor = require("randomcolor");
+import { sort } from "@utils/tools";
 
 export default {
-  name: 'Search',
+  name: "Search",
   data() {
     return {};
   },
   async mounted() {
-    await this.$store.dispatch('getHostUserList');
-    await this.$store.dispatch('getvipuser');
+    await this.$store.dispatch("getHostUserList");
+    await this.$store.dispatch("getvipuser");
     console.log(this.vipUserList);
   },
   methods: {
@@ -54,29 +66,23 @@ export default {
       this.$router.push({ path: "/persionDetail", query: { id: item._id } });
     },
     handleSearch() {
-
       this.$router.push("/searchResult");
     },
-
   },
   computed: {
-    ...mapState([
-      'hotUserList',
-      'userInfo',
-      'vipUserList'
-    ]),
+    ...mapState(["hotUserList", "userInfo", "vipUserList"]),
     mapHotList() {
-      return this.hotUserList.map(item => ({
+      return this.hotUserList.map((item) => ({
         ...item,
-        color: randomColor()
-      }))
-    }
+        color: randomColor(),
+      }));
+    },
   },
   components: {
     Bottom,
     UserHead,
-    SearchBar
-  }
+    SearchBar,
+  },
 };
 </script>
 

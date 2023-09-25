@@ -1,19 +1,20 @@
 <template>
   <div class="chat">
     <div class="input" @keyup.enter="handleSubmit">
-      <input type="text" v-model="chatValue">
+      <input type="text" v-model="chatValue" />
     </div>
-    <mu-button class="demo-raised-button" color="primary" @click="handleSubmit">发送</mu-button>
+    <mu-button class="demo-raised-button" color="primary" @click="handleSubmit"
+      >发送</mu-button
+    >
   </div>
 </template>
 
 <script>
 export default {
-
   components: {},
-  data () {
+  data() {
     return {
-      chatValue: '',
+      chatValue: "",
     };
   },
 
@@ -23,14 +24,13 @@ export default {
 
   methods: {
     handleSubmit() {
-      this.$emit('sumbit', this.chatValue);
-      this.chatValue = '';
-    }
-  }
-}
-
+      this.$emit("sumbit", this.chatValue);
+      this.chatValue = "";
+    },
+  },
+};
 </script>
-<style lang='stylus' scoped>
+<style lang="stylus" scoped>
 .chat {
   width: 100%;
   display: flex;

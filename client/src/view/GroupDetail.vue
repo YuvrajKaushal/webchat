@@ -6,35 +6,43 @@
       content="聊天信息"
       color=""
       @leftClick="goback"
-      ></Header>
+    ></Header>
     <div class="all-chat">
       <div class="group-avatar group-list">
-        <Avatar v-for="(item,index) in Object.keys(roomUsers[roomid] || {}).slice(0, 18)" class="list-avatar" :key="index" :src="roomUsers[roomid][item].src"></Avatar>
-        <div class="group-more" v-show="Object.keys(allUser).length > 18" @click="gotoMore">查看更多群成员</div>
+        <Avatar
+          v-for="(item, index) in Object.keys(roomUsers[roomid] || {}).slice(
+            0,
+            18,
+          )"
+          class="list-avatar"
+          :key="index"
+          :src="roomUsers[roomid][item].src"
+        ></Avatar>
+        <div
+          class="group-more"
+          v-show="Object.keys(allUser).length > 18"
+          @click="gotoMore"
+        >
+          查看更多群成员
+        </div>
       </div>
       <div class="group-list">
         <mu-list>
           <mu-sub-header>声音开启设置</mu-sub-header>
           <mu-list-item button :ripple="false" @click="events = !events">
-            <mu-list-item-title>
-              事件和提醒
-            </mu-list-item-title>
+            <mu-list-item-title> 事件和提醒 </mu-list-item-title>
             <mu-list-item-action>
               <mu-switch v-model="events" readonly></mu-switch>
             </mu-list-item-action>
           </mu-list-item>
           <mu-list-item button :ripple="false" @click="calls = !calls">
-            <mu-list-item-title>
-              电话
-            </mu-list-item-title>
+            <mu-list-item-title> 电话 </mu-list-item-title>
             <mu-list-item-action>
               <mu-switch v-model="calls" readonly></mu-switch>
             </mu-list-item-action>
           </mu-list-item>
           <mu-list-item button :ripple="false" @click="messages = !messages">
-            <mu-list-item-title>
-              信息
-            </mu-list-item-title>
+            <mu-list-item-title> 信息 </mu-list-item-title>
             <mu-list-item-action>
               <mu-switch v-model="messages" readonly></mu-switch>
             </mu-list-item-action>
@@ -44,29 +52,31 @@
       <div class="group-list">
         <mu-list>
           <mu-sub-header>通知设置</mu-sub-header>
-          <mu-list-item button :ripple="false" @click="notifications = !notifications">
+          <mu-list-item
+            button
+            :ripple="false"
+            @click="notifications = !notifications"
+          >
             <mu-list-item-action>
               <mu-checkbox v-model="notifications" readonly></mu-checkbox>
             </mu-list-item-action>
-            <mu-list-item-title>
-              通知
-            </mu-list-item-title>
+            <mu-list-item-title> 通知 </mu-list-item-title>
           </mu-list-item>
           <mu-list-item button :ripple="false" @click="sounds = !sounds">
             <mu-list-item-action>
               <mu-checkbox v-model="sounds" readonly></mu-checkbox>
             </mu-list-item-action>
-            <mu-list-item-title>
-              声音
-            </mu-list-item-title>
+            <mu-list-item-title> 声音 </mu-list-item-title>
           </mu-list-item>
-          <mu-list-item button :ripple="false" @click="videoSounds = !videoSounds">
+          <mu-list-item
+            button
+            :ripple="false"
+            @click="videoSounds = !videoSounds"
+          >
             <mu-list-item-action>
               <mu-checkbox v-model="videoSounds" readonly></mu-checkbox>
             </mu-list-item-action>
-            <mu-list-item-title>
-              视频的声音
-            </mu-list-item-title>
+            <mu-list-item-title> 视频的声音 </mu-list-item-title>
           </mu-list-item>
         </mu-list>
       </div>
@@ -77,16 +87,16 @@
 <script>
 import Header from "@components/Header";
 import Avatar from "@components/Avatar";
-import {mapGetters, mapState} from 'vuex';
-import {queryString} from '@utils/queryString';
+import { mapGetters, mapState } from "vuex";
+import { queryString } from "@utils/queryString";
 export default {
-  name: 'GroupDetail',
+  name: "GroupDetail",
 
   components: {
     Header,
-    Avatar
+    Avatar,
   },
-  data () {
+  data() {
     return {
       events: false,
       calls: false,
@@ -94,23 +104,21 @@ export default {
       notifications: false,
       sounds: false,
       videoSounds: false,
-      roomid: '',
+      roomid: "",
       allUser: {
-        '005': {
-          src: 'static/files/825836avatar-hua1995116.jpeg'
-        }
-      }
+        "005": {
+          src: "static/files/825836avatar-hua1995116.jpeg",
+        },
+      },
     };
   },
 
   computed: {
-    ...mapState([
-      'roomUsers'
-    ]),
+    ...mapState(["roomUsers"]),
   },
 
   mounted() {
-    const roomId = queryString(window.location.href, 'roomId');
+    const roomId = queryString(window.location.href, "roomId");
     this.roomid = roomId;
     // const allUser = {}
     // let i = 0;
@@ -130,13 +138,15 @@ export default {
       this.$router.goBack();
     },
     gotoMore() {
-      this.$router.push({ path: "/groupMember", query: {roomId: this.roomid} });
-    }
-  }
-}
-
+      this.$router.push({
+        path: "/groupMember",
+        query: { roomId: this.roomid },
+      });
+    },
+  },
+};
 </script>
-<style lang='stylus' scoped>
+<style lang="stylus" scoped>
 .all-chat {
   overflow: scroll;
   height: calc(100vh - 50px);

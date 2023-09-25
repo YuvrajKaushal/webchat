@@ -1,12 +1,16 @@
 <template>
-  <i class="icon iconfont" :class="[sex === 'nan' ? 'icon-nan' : sex === 'nv' ? 'icon-nv': 'icon-weizhi']"></i>
+  <i
+    class="icon iconfont"
+    :class="[
+      sex === 'nan' ? 'icon-nan' : sex === 'nv' ? 'icon-nv' : 'icon-weizhi',
+    ]"
+  ></i>
 </template>
 
 <script>
 export default {
-  props: ['sex']
-}
-
+  props: ["sex"],
+};
 </script>
 <style>
 .icon-nan {

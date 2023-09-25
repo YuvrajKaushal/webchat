@@ -1,27 +1,27 @@
-import Vue from 'vue';
-import Router from 'vue-router';
-import Index from '../view/Loan.vue';
-import Robot from '../view/Robot';
-import Home from '../view/Home';
-import Register from '../view/Signin/Register';
-import Login from '../view/Signin/Login';
-import Chat from '../view/Chat';
-import Avatar from '../view/Avatar';
-import GroupDetail from '../view/GroupDetail';
-import PersonDetail from '../view/PersonDetail';
-import GroupMember from '../view/GroupMember';
-import Search from '../view/Search';
-import SearchResult from '../view/SearchResult';
-import BaseTransition from '../BaseTransition';
-import TopTransition from '../TopTransition';
-import BaseView from '../BaseView';
-import loading from '../components/loading/loading';
+import Vue from 'vue'
+import Router from 'vue-router'
+import Index from '../view/Loan.vue'
+import Robot from '../view/Robot'
+import Home from '../view/Home'
+import Register from '../view/Signin/Register'
+import Login from '../view/Signin/Login'
+import Chat from '../view/Chat'
+import Avatar from '../view/Avatar'
+import GroupDetail from '../view/GroupDetail'
+import PersonDetail from '../view/PersonDetail'
+import GroupMember from '../view/GroupMember'
+import Search from '../view/Search'
+import SearchResult from '../view/SearchResult'
+import BaseTransition from '../BaseTransition'
+import TopTransition from '../TopTransition'
+import BaseView from '../BaseView'
+import loading from '../components/loading/loading'
 
 Router.prototype.goBack = function () {
-  this.isBack = true;
-  window.history.go(-1);
-};
-Vue.use(Router);
+  this.isBack = true
+  window.history.go(-1)
+}
+Vue.use(Router)
 
 const router = new Router({
   routes: [
@@ -33,7 +33,7 @@ const router = new Router({
         {
           path: '',
           name: 'index',
-          component: Index,
+          component: Index
         },
         {
           path: '/chat',
@@ -80,10 +80,10 @@ const router = new Router({
             {
               path: '',
               name: 'Home',
-              component: Home,
-            },
+              component: Home
+            }
           ]
-        },
+        }
       ]
     },
     {
@@ -99,12 +99,12 @@ const router = new Router({
             {
               path: '',
               name: 'Search',
-              component: Search,
+              component: Search
             },
             {
               path: '/searchResult',
               name: 'SearchResult',
-              component: SearchResult,
+              component: SearchResult
             }
           ]
         }
@@ -121,15 +121,15 @@ const router = new Router({
       component: Login
     }
   ]
-});
+})
 
 router.beforeEach((to, from, next) => {
-  loading.show();
-  next();
-});
+  loading.show()
+  next()
+})
 
-router.afterEach(route => {
-  loading.hide();
-});
+router.afterEach((route) => {
+  loading.hide()
+})
 
-export default router;
+export default router

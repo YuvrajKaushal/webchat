@@ -1,36 +1,34 @@
-import './loading.css';
+import './loading.css'
 
-const doc = window.document;
-const $body = doc.body || doc.head;
-const $loading = doc.createElement('div');
-$loading.classList.add('loader-over');
+const doc = window.document
+const $body = doc.body || doc.head
+const $loading = doc.createElement('div')
+$loading.classList.add('loader-over')
 $loading.innerHTML = `<div class="logo">
                           <div class="white"></div>
                           <div class="orange"></div>
                           <div class="red"></div>
-                      </div>`;
+                      </div>`
 
 const Loading = {
-  show({delay = 0}) {
+  show ({ delay = 0 }) {
     try {
-      if(!delay) {
+      if (!delay) {
         setTimeout(() => {
-          $body.appendChild($loading);
-        }, delay);
+          $body.appendChild($loading)
+        }, delay)
       } else {
-        $body.appendChild($loading);
+        $body.appendChild($loading)
       }
-    } catch (e) {
-    }
+    } catch (e) {}
   },
-  hide() {
+  hide () {
     try {
       if ($loading.parentNode === $body) {
-        $body.removeChild($loading);
+        $body.removeChild($loading)
       }
-    } catch (e) {
-    }
+    } catch (e) {}
   }
-};
+}
 
-export default Loading;
+export default Loading

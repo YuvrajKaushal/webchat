@@ -4,6 +4,19 @@
 
 #### /user/signin 注册
 
+```
+body: {
+
+​	name:  （String）  // 用户名称
+
+​	 password: （String）  // 密码
+
+​	src:  （String）// 随机头像
+
+}
+```
+
+#### /user/signup 登录
 
 ```
 body: {
@@ -12,24 +25,12 @@ body: {
 
 ​	 password: （String）  // 密码
 
-​	src:  （String）// 随机头像 
-
 }
 ```
-#### /user/signup  登录
-```
-body: {
 
-​	name:  （String）  // 用户名称
-
-​	 password: （String）  // 密码
-
-}
-```
 #### /file/uploadimg
 
 formdata格式
-
 
 ```
 formdata {
@@ -47,12 +48,10 @@ formdata {
 }
 ```
 
-
-
-
 ### GET
 
-#### /message  // 获取当前房间的最新80条信息
+#### /message // 获取当前房间的最新80条信息
+
 ```
 query：{
 
@@ -60,7 +59,9 @@ query：{
 
 }
 ```
-#### /history/message  获取历史记录
+
+#### /history/message 获取历史记录
+
 ```
 query：{
 
@@ -72,6 +73,7 @@ query：{
 ```
 
 #### /robotapi
+
 ```
 query：{
 

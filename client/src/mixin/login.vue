@@ -14,8 +14,8 @@ export default {
         return false;
       }
       return true;
-    }
+    },
   },
-  mounted() {}
+  mounted() {},
 };
 </script>

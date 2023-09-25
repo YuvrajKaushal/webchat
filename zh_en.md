@@ -1,7 +1,8 @@
 # webchat
+
 [![Build Status](https://www.travis-ci.org/hua1995116/webchat.svg?branch=master)](https://www.travis-ci.org/hua1995116/webchat)
 
-[中文版](./README.md) [English](./zh_en.md) 
+[中文版](./README.md) [English](./zh_en.md)
 
 ## Feature
 
@@ -17,7 +18,6 @@
 - [x] Message not read
 - [x] Broken line reconnection
 
-
 ## Start
 
 Dev Env: MongoDB、Node 8.5.0+、Npm 5.3.0+
@@ -31,10 +31,10 @@ npm run dev
 
 ```
 
-## build 
+## build
 
 ```
-npm run build 
+npm run build
 
 npm run server
 ```
@@ -45,11 +45,11 @@ Website
 
 ## Skill
 
- - Front-end: vue，vue-router ,vuex
- - Back-end: nodejs，express
- - database: mongodb
- - socket: websocket
- - scaffold: vue-cli
+- Front-end: vue，vue-router ,vuex
+- Back-end: nodejs，express
+- database: mongodb
+- socket: websocket
+- scaffold: vue-cli
 
 ## Rendering
 
@@ -66,6 +66,7 @@ Website
 <a href="./RELEASE.md">RELEASE</a>
 
 ## wiki
+
 [vue+websocket+express+mongodb实战项目（实时聊天）（一）](http://blog.csdn.net/blueblueskyhua/article/details/70807847)
 
 [vue+websocket+express+mongodb实战项目（实时聊天）（二）](http://blog.csdn.net/blueblueskyhua/article/details/73250992)

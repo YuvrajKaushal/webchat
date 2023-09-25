@@ -1,6 +1,6 @@
-var mongoose = require('mongoose')
-//聊天记录模型
-var MessageSchema = new mongoose.Schema({
+const mongoose = require('mongoose')
+// 聊天记录模型
+const MessageSchema = new mongoose.Schema({
   username: String,
   src: String,
   msg: {
@@ -15,25 +15,20 @@ var MessageSchema = new mongoose.Schema({
     default: ''
   },
   type: {
-    type: String,
+    type: String
   },
   time: {
     type: Date,
     default: Date.now()
   }
 })
-//静态方法
+// 静态方法
 MessageSchema.statics = {
   fetch: function (cb) {
-    return this
-      .find({})
-      .sort('time')
-      .exec(cb)
+    return this.find({}).sort('time').exec(cb)
   },
   findById: function (id, cb) {
-    return this
-      .findOne({_id: id})
-      .exec(cb)
+    return this.findOne({ _id: id }).exec(cb)
   }
 }
 module.exports = MessageSchema
