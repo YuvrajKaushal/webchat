@@ -1,5 +1,5 @@
-var mongoose = require('mongoose')
-var CountSchema = require('../schemas/count')
-var Count = mongoose.model('Count', CountSchema)
+const mongoose = require('mongoose')
+const CountSchema = require('../schemas/count')
+const Count = mongoose.model('Count', CountSchema)
 
 module.exports = Count

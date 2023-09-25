@@ -2,9 +2,19 @@
   <div class="app-bottom">
     <mu-paper>
       <mu-bottom-nav :value="bottomNav" v-if="bottomNav">
-        <mu-bottom-nav-item value="#/" title="主页" icon="restore" to="/"/>
-        <mu-bottom-nav-item value="#/search" title="搜索" icon="search" to="/search"/>
-        <mu-bottom-nav-item value="#/home" title="我的" icon="location_on" to="/home"/>
+        <mu-bottom-nav-item value="#/" title="主页" icon="restore" to="/" />
+        <mu-bottom-nav-item
+          value="#/search"
+          title="搜索"
+          icon="search"
+          to="/search"
+        />
+        <mu-bottom-nav-item
+          value="#/home"
+          title="我的"
+          icon="location_on"
+          to="/home"
+        />
       </mu-bottom-nav>
     </mu-paper>
   </div>
@@ -12,11 +22,10 @@
 
 <script>
 export default {
-
   components: {},
-  data () {
+  data() {
     return {
-      bottomNav: '',
+      bottomNav: "",
     };
   },
 
@@ -27,11 +36,10 @@ export default {
     this.bottomNav = hash;
   },
 
-  methods: {}
-}
-
+  methods: {},
+};
 </script>
-<style lang='stylus' scoped>
+<style lang="stylus" scoped>
 .app-bottom {
   position: fixed;
   bottom: 21px;

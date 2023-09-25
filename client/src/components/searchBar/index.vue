@@ -1,21 +1,32 @@
 <template>
   <div class="search-container">
     <div v-if="disabled" class="search-bar" @click="search">快来搜索朋友吧</div>
-    <input v-else type="text" class="search-bar" placeholder="快来搜索朋友吧" @input="change" v-focus>
-    <mu-icon v-if="disabled" class="search-icon" size="32" value="search" @click="search"></mu-icon>
+    <input
+      v-else
+      type="text"
+      class="search-bar"
+      placeholder="快来搜索朋友吧"
+      @input="change"
+      v-focus
+    />
+    <mu-icon
+      v-if="disabled"
+      class="search-icon"
+      size="32"
+      value="search"
+      @click="search"
+    ></mu-icon>
     <span v-else class="search-text" @click="cancel">取消</span>
   </div>
 </template>
 
 <script>
-import debounce from 'lodash/debounce';
+import debounce from "lodash/debounce";
 export default {
-
   components: {},
-  props: ['disabled', 'timeout'],
-  data () {
-    return {
-    };
+  props: ["disabled", "timeout"],
+  data() {
+    return {};
   },
 
   computed: {},
@@ -24,17 +35,16 @@ export default {
 
   methods: {
     search() {
-      this.$emit('submit');
+      this.$emit("submit");
     },
-    change: debounce(function(e) {
-      this.$emit('change', e.target.value);
+    change: debounce(function (e) {
+      this.$emit("change", e.target.value);
     }, 500),
     cancel() {
-      this.$emit('cancel');
-    }
-  }
-}
-
+      this.$emit("cancel");
+    },
+  },
+};
 </script>
 <style lang="stylus" rel="stylesheet/stylus">
 .search-container{
@@ -86,7 +96,4 @@ export default {
   padding-left: 10px;
   border-left: 1px solid #d0cfce;
 }
-
-
-
 </style>

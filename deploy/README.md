@@ -1,6 +1,6 @@
 # 自动替换上传七牛云
 
-## config 
+## config
 
 ```
 const config = {

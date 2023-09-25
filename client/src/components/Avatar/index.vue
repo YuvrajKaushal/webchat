@@ -1,33 +1,30 @@
 <template>
   <div class="w-avatar">
-    <img :src="src" alt="" :class="[avatarSzie, avatarType]">
+    <img :src="src" alt="" :class="[avatarSzie, avatarType]" />
   </div>
 </template>
 
 <script>
 export default {
-  props: ['size', 'type', 'src'],
+  props: ["size", "type", "src"],
   components: {},
-  data () {
-    const avatarSzie = `w-avatar-${this.size || 'normal'}`;
-    const avatarType = `w-avatar-${this.type || 'square'}`;
+  data() {
+    const avatarSzie = `w-avatar-${this.size || "normal"}`;
+    const avatarType = `w-avatar-${this.type || "square"}`;
     return {
       avatarSzie,
-      avatarType
+      avatarType,
     };
   },
 
   computed: {},
 
-  mounted() {
+  mounted() {},
 
-  },
-
-  methods: {}
-}
-
+  methods: {},
+};
 </script>
-<style lang='stylus'>
+<style lang="stylus">
 .w-avatar {
   display: inline-block;
   line-height: 1;

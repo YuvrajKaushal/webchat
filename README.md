@@ -27,7 +27,6 @@
 - [x] 搜索好友
 - [x] 热门好友推荐
 
-
 ## 启动项目
 
 Dev环境: MongoDB、Node 8.5.0+、Npm 5.3.0+
@@ -35,6 +34,7 @@ Dev环境: MongoDB、Node 8.5.0+、Npm 5.3.0+
 Prod环境: Redis、MongoDB、Node 8.5.0+、Npm 5.3.0+
 
 启动客户端
+
 ```
 $webchat cd client
 
@@ -43,7 +43,9 @@ $client npm install -----安装依赖
 $client npm run serve -----运行
 
 ```
+
 启动服务端
+
 ```
 $client cd ..
 
@@ -55,6 +57,7 @@ $webchat npm run dev
 ## 打包
 
 打包客户端
+
 ```
 cd client
 
@@ -62,6 +65,7 @@ npm run build
 ```
 
 服务端运行
+
 ```
 cd ..
 
@@ -74,21 +78,19 @@ npm run prod
 
 ## 技术交流
 
-
 qq群: 437938625
 
 微信群: 加微信拉你进微信群。
 
 <img src="https://s3.qiufengh.com/webchat/webcaht-my.jpeg?imageView2/2/w/360" width="300" />
 
-
 ## 技术栈
 
- - 前端 vue，vue-router ,vuex
- - 后端 nodejs，express
- - 数据库 mongodb
- - 通讯 websocket
- - 脚手架工具 vue-cli
+- 前端 vue，vue-router ,vuex
+- 后端 nodejs，express
+- 数据库 mongodb
+- 通讯 websocket
+- 脚手架工具 vue-cli
 
 ## 效果
 

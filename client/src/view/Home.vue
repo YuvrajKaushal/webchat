@@ -45,7 +45,7 @@
         >退出</mu-button
       >
     </div>
-    <div style="height:80px"></div>
+    <div style="height: 80px"></div>
     <Bottom></Bottom>
   </div>
 </template>
@@ -58,7 +58,7 @@ import Alert from "@components/Alert";
 import Bottom from "@components/Bottom";
 import UserHead from "@components/userHead";
 import socket from "../socket";
-import loginMixin from '../mixin/login';
+import loginMixin from "../mixin/login";
 
 export default {
   name: "Home",
@@ -72,7 +72,7 @@ export default {
         title: "提示",
         content: "需要登录后才能查看哦~",
         ok: "去登录",
-        cancel: "返回首页"
+        cancel: "返回首页",
       });
       if (data === "submit") {
         this.$router.push("/login");
@@ -83,10 +83,9 @@ export default {
   },
   methods: {
     checkNotice() {
-
       if (!("Notification" in window)) {
         Alert({
-          content: "您的浏览器暂不支持该功能"
+          content: "您的浏览器暂不支持该功能",
         });
       }
 
@@ -94,22 +93,22 @@ export default {
       else if (Notification.permission === "granted") {
         // If it's okay let's create a notification
         Alert({
-          content: "您已开启通知"
+          content: "您已开启通知",
         });
       }
 
       // 否则我们需要向用户获取权限
       else if (Notification.permission !== "denied") {
-        console.log('获取权限');
-        Notification.requestPermission(function(permission) {
+        console.log("获取权限");
+        Notification.requestPermission(function (permission) {
           // 如果用户同意，就可以向他们发送通知
           if (permission === "granted") {
             Alert({
-              content: "开启权限成功"
+              content: "开启权限成功",
             });
           } else {
             Alert({
-              content: "开启权限拒绝"
+              content: "开启权限拒绝",
             });
           }
         });
@@ -123,7 +122,7 @@ export default {
     async rmLocalData() {
       const data = await Confirm({
         title: "提示",
-        content: "清除缓存会导致更新历史再再次提醒，确定清除？"
+        content: "清除缓存会导致更新历史再再次提醒，确定清除？",
       });
       if (data === "submit") {
         removeItem("update-20180916");
@@ -132,43 +131,42 @@ export default {
     async logout() {
       const data = await Confirm({
         title: "提示",
-        content: "你忍心离开吗？"
+        content: "你忍心离开吗？",
       });
       if (data === "submit") {
-        socket.emit('roomout');
+        socket.emit("roomout");
         clear();
         this.$store.commit("setUserInfo", {});
         this.$store.commit("setUnread", {
           room1: 0,
-          room2: 0
+          room2: 0,
         });
         this.$router.push("/");
       }
     },
     handleGithub() {
       Alert({
-        content: "https://github.com/hua1995116/webchat"
+        content: "https://github.com/hua1995116/webchat",
       });
     },
     handleTips() {
       Alert({
         title: "请我喝杯奶茶",
-        html:
-          '<div><img style="width: 200px" src="//s3.qiufengh.com/money/WechatIMG64.jpeg" /></div>'
+        html: '<div><img style="width: 200px" src="//s3.qiufengh.com/money/WechatIMG64.jpeg" /></div>',
       });
-    }
+    },
   },
   computed: {
     ...mapState({
-      username: state => state.userInfo.userid,
-      userid: state => state.userInfo.id,
-      src: state => state.userInfo.src
-    })
+      username: (state) => state.userInfo.userid,
+      userid: (state) => state.userInfo.id,
+      src: (state) => state.userInfo.src,
+    }),
   },
   components: {
     Bottom,
-    UserHead
-  }
+    UserHead,
+  },
 };
 </script>
 

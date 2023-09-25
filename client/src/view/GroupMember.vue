@@ -6,10 +6,15 @@
       content="所有成员"
       color=""
       @leftClick="goback"
-      ></Header>
+    ></Header>
     <div class="all-chat">
       <div class="group-avatar">
-        <Avatar v-for="(obj,index) in roomUsers[roomid]" class="list-avatar" :key="index" :src="obj.src"></Avatar>
+        <Avatar
+          v-for="(obj, index) in roomUsers[roomid]"
+          class="list-avatar"
+          :key="index"
+          :src="obj.src"
+        ></Avatar>
       </div>
     </div>
   </div>
@@ -18,29 +23,27 @@
 <script>
 import Header from "@components/Header";
 import Avatar from "@components/Avatar";
-import {queryString} from '@utils/queryString';
-import {mapGetters, mapState} from 'vuex';
+import { queryString } from "@utils/queryString";
+import { mapGetters, mapState } from "vuex";
 export default {
-  name: 'GroupMember',
+  name: "GroupMember",
 
   components: {
     Header,
-    Avatar
+    Avatar,
   },
-  data () {
+  data() {
     return {
-      roomid: '',
+      roomid: "",
     };
   },
 
   computed: {
-   ...mapState([
-      'roomUsers'
-    ]),
+    ...mapState(["roomUsers"]),
   },
 
   mounted() {
-    const roomId = queryString(window.location.href, 'roomId');
+    const roomId = queryString(window.location.href, "roomId");
     this.roomid = roomId;
   },
 
@@ -49,11 +52,10 @@ export default {
       this.$router.isBack = true;
       this.$router.goBack();
     },
-  }
-}
-
+  },
+};
 </script>
-<style lang='stylus' scoped>
+<style lang="stylus" scoped>
 .all-chat {
   overflow: scroll;
   height: calc(100vh - 50px);

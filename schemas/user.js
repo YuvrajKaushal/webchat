@@ -1,18 +1,19 @@
-var mongoose = require('mongoose')
-//用于md5加密
-var bcrypt = require('bcryptjs')
-//加盐数
-var SALT_WORK_FACTOR = 10
-var UserSchema = new mongoose.Schema({
+const mongoose = require('mongoose')
+// 用于md5加密
+const bcrypt = require('bcryptjs')
+// 加盐数
+const SALT_WORK_FACTOR = 10
+const UserSchema = new mongoose.Schema({
   name: {
     unique: true,
     type: String
   },
   nickname: String, // 昵称
   sex: Boolean, // 性别 0-男  1-女
-  iphone: {     // 电话号
+  iphone: {
+    // 电话号
     type: String,
-    max: 20,
+    max: 20
   },
   password: String,
   src: String,
@@ -26,14 +27,13 @@ var UserSchema = new mongoose.Schema({
       default: Date.now()
     }
   }
-});
-//对密码进行加密
+})
+// 对密码进行加密
 UserSchema.pre('save', function (next) {
-  var user = this
+  const user = this
   if (this.isNew) {
     this.createAt = this.updateAt = Date.now()
-  }
-  else {
+  } else {
     this.updateAt = Date.now()
   }
   bcrypt.genSalt(SALT_WORK_FACTOR, function (err, salt) {
@@ -47,7 +47,7 @@ UserSchema.pre('save', function (next) {
     })
   })
 })
-//用于比较密码是否正确
+// 用于比较密码是否正确
 UserSchema.methods = {
   comparePassword: function (_password, cb) {
     bcrypt.compare(_password, this.password, function (err, isMatch) {
@@ -59,15 +59,10 @@ UserSchema.methods = {
 
 UserSchema.statics = {
   fetch: function (cb) {
-    return this
-      .find({})
-      .sort('meta.updateAt')
-      .exec(cb)
+    return this.find({}).sort('meta.updateAt').exec(cb)
   },
   findById: function (id, cb) {
-    return this
-      .findOne({_id: id})
-      .exec(cb)
+    return this.findOne({ _id: id }).exec(cb)
   }
 }
 

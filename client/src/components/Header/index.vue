@@ -1,24 +1,24 @@
 <template>
   <div class="header">
-      <div class="title">
-        <mu-appbar :color="color">
-          <mu-button icon slot="left" @click="leftClick">
-            <mu-icon :value="leftIcon"></mu-icon>
-          </mu-button>
-          <div class="center">
-            {{content}}
-          </div>
-          <mu-button icon slot="right" @click="rightClick">
-            <mu-icon :value="rightIcon"></mu-icon>
-          </mu-button>
-        </mu-appbar>
-      </div>
+    <div class="title">
+      <mu-appbar :color="color">
+        <mu-button icon slot="left" @click="leftClick">
+          <mu-icon :value="leftIcon"></mu-icon>
+        </mu-button>
+        <div class="center">
+          {{ content }}
+        </div>
+        <mu-button icon slot="right" @click="rightClick">
+          <mu-icon :value="rightIcon"></mu-icon>
+        </mu-button>
+      </mu-appbar>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['content', 'leftIcon', 'rightIcon', 'color'],
+  props: ["content", "leftIcon", "rightIcon", "color"],
   components: {},
   data() {
     return {};
@@ -26,17 +26,16 @@ export default {
 
   computed: {},
 
-  mounted() {
-  },
+  mounted() {},
 
   methods: {
     leftClick() {
-      this.$emit('leftClick');
+      this.$emit("leftClick");
     },
     rightClick() {
-      this.$emit('rightClick');
-    }
-  }
+      this.$emit("rightClick");
+    },
+  },
 };
 </script>
 <style lang="stylus" rel="stylesheet/stylus" scoped>

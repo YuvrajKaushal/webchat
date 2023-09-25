@@ -11,13 +11,11 @@ import { mapState } from "vuex";
 export default {
   data() {
     return {
-      bottomNav: "recents"
+      bottomNav: "recents",
     };
   },
-  mounted() {
-  },
-  methods: {
-  },
+  mounted() {},
+  methods: {},
 };
 </script>
 
